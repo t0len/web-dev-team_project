@@ -2,6 +2,36 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
 
+## Main idea
+
+Bookly — это веб-приложение для управления каталогом книг, которое позволяет пользователям:
+Просматривать каталог книг
+● Скачивать книги (файлы или по ссылке)
+● Оставлять отзывы и оценки
+● Авторизоваться для получения расширенного доступа
+Для всех пользователей:
+● Просмотр списка книг
+● Поиск / фильтрация книг
+● Просмотр описания книги
+● Скачивание книги
+Для авторизованных пользователей:
+● Добавление новой книги
+● Добавление отзыва и оценки
+● Регистрация / вход в аккаунт
+Для администратора (через Django Admin):
+● Полный контроль над книгами, отзывами, пользователями
+
+пока так, могут быть изменения
+
+## Стэк технологий
+Бэкенд Django + Django REST Framework
+Фронтенд Angular + Angular Material
+
+## Студенты
+Mereke Nuray 
+Tolendy Aidos
+Zhumabek Elana
+
 ## Development server
 
 To start a local development server, run:
@@ -57,3 +87,7 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+
+
