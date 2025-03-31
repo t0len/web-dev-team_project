@@ -1,0 +1,11 @@
+.book-detail {
+  max-width: 800px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.book-cover {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+}
