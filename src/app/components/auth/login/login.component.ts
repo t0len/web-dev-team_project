@@ -12,14 +12,19 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   email = '';
   password = '';
-  error = '';
+  /*error = '';*/
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
-  login() {
-    this.auth.login(this.email, this.password).subscribe({
-      next: () => this.router.navigate(['/books']),
-      error: err => this.error = 'Неверный логин или пароль'
+  onLogin() {
+    this.authService.login(this.email, this.password).subscribe({
+      next: () => {
+        this.router.navigate(['/']); // после логина — на главную
+      },
+      error: (err) => {
+        alert('Неверный логин или пароль');
+        console.error(err);
+      }
     });
   }
 }

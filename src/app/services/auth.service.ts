@@ -5,7 +5,7 @@ import { Observable, tap } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private apiUrl = 'http://localhost:8000/api'; // замени, если у тебя другой адрес
+  private apiUrl = 'http://localhost:8000/api'; 
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -17,6 +17,11 @@ export class AuthService {
       })
     );
   }
+
+  register(email: string, password: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/users/`, { email, password });
+  }
+  
 
   logout() {
     localStorage.removeItem('access');
