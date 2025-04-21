@@ -1,7 +1,6 @@
 <div class="book-detail">
   <h1>{{ book.title }}</h1>
-  <p>{{ book.author }} - {{ book.publishedYear }}</p>
-  <img [src]="book.cover" alt="Book cover" class="book-cover">
+  
   <p>{{ book.description }}</p>
-  <a *ngIf="book.file" [href]="book.file" download="Download">Download Book</a>
+  <a *ngIf="book.file_url" [href]="book.file_url" download="Download">Download Book</a>
 </div>

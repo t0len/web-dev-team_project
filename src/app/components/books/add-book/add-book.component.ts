@@ -10,7 +10,7 @@ import {FormsModule} from '@angular/forms';
   imports: [
     FormsModule
   ],
-  styleUrls: ['./add-book.component.scss']
+  styleUrls: ['./add-book.component.css']
 })
 export class AddBookComponent {
 
@@ -19,9 +19,9 @@ export class AddBookComponent {
     title: '',
     description: '',
     author: '',
-    publishedYear: 0,
-    cover: '',
-    file: null
+    file_url: '',
+    rating: 0,
+
   };
 
   constructor(private bookService: BookService, private router: Router) {}

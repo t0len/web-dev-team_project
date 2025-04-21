@@ -9,9 +9,15 @@ import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
-  imports: [FormsModule, HttpClientModule, BrowserModule, RouterModule, AppRoutingModule],
+  imports: [FormsModule, 
+    HttpClientModule, 
+    BrowserModule, 
+    RouterModule, 
+    AppRoutingModule, 
+    RouterModule],
   declarations: [
     AppComponent,
+    
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, 

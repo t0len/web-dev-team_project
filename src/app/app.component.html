@@ -1,9 +1,10 @@
+<router-outlet></router-outlet>
 <nav class="navbar">
   <a routerLink="/">Главная</a>
   <a routerLink="/add-book" *ngIf="isLoggedIn()">Добавить книгу</a>
   <a routerLink="/login" *ngIf="!isLoggedIn()">Войти</a>
   <a routerLink="/register" *ngIf="!isLoggedIn()">Регистрация</a>
-  <!--<a (click)="/logout" *ngIf="isLoggedIn()">Выйти</a>-->
+  <a (click)="logout()" *ngIf="isLoggedIn()">Выйти</a>
 </nav>
 
-<router-outlet></router-outlet>
+

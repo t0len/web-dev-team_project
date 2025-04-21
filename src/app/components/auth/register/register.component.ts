@@ -2,12 +2,10 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 
-
 @Component({
   selector: 'app-register',
-  imports: [],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
   email: string = '';
@@ -27,7 +25,4 @@ export class RegisterComponent {
       }
     });
   }
-
-
-
 }
