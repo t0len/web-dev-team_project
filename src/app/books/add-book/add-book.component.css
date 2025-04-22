@@ -1,0 +1,21 @@
+.add-book-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .file-upload {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .file-upload label {
+    font-weight: 500;
+  }

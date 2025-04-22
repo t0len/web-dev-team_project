@@ -1,0 +1,31 @@
+.book-list-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .search-bar {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+  
+  .book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .book-card {
+    transition: transform 0.3s;
+  }
+  
+  .book-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .loading-spinner, .no-books {
+    text-align: center;
+    margin: 50px 0;
+  }

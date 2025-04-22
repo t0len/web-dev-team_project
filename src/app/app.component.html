@@ -1,0 +1,44 @@
+<!-- <router-outlet></router-outlet>
+
+<nav>
+  <a routerLink="/login">Login</a>
+  <a routerLink="/register">Register</a>
+  <a routerLink="/books">Books</a>
+</nav> -->
+
+<mat-toolbar color="primary">
+  <a mat-button routerLink="/books" class="logo">
+    <mat-icon>menu_book</mat-icon>
+    <span>Book Catalog</span>
+  </a>
+
+  <span class="spacer"></span>
+
+  <!-- Навигация для авторизованных пользователей -->
+  @if (authService.isAuthenticated()) {
+    <button mat-button routerLink="/books">Books</button>
+    
+    @if (authService.isAdmin()) {
+      <button mat-button [matMenuTriggerFor]="adminMenu">Admin</button>
+      <mat-menu #adminMenu="matMenu">
+        <button mat-menu-item routerLink="/admin/books">Manage Books</button>
+        <button mat-menu-item routerLink="/admin/users">Manage Users</button>
+      </mat-menu>
+    }
+
+    <button mat-button [matMenuTriggerFor]="userMenu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item (click)="authService.logout()">Logout</button>
+    </mat-menu>
+  } @else {
+    <!-- Навигация для гостей -->
+    <button mat-button routerLink="/login">Login</button>
+    <button mat-button routerLink="/register">Register</button>
+  }
+</mat-toolbar>
+
+<main class="content">
+  <router-outlet></router-outlet>
+</main>

@@ -1,0 +1,60 @@
+.book-detail-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .book-header {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .book-header img {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .book-info {
+    flex: 1;
+  }
+  
+  .actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .reviews-section {
+    margin-top: 30px;
+  }
+  
+  .add-review {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .review-card {
+    border: 1px solid #eee;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+  }
+  
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .rating {
+    color: gold;
+  }
+  
+  .date {
+    color: #666;
+    font-size: 0.8em;
+  }
