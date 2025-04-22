@@ -1,12 +1,13 @@
 from rest_framework.decorators import api_view
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from .serializers import BookSerializer, ReviewSerializer
-from .models import Book, Favorite
+from .models import Book
 from django.contrib.auth.models import User
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework_simplejwt.tokens import RefreshToken
+
 
 @api_view(['GET'])
 def get_books(request):
@@ -35,15 +36,15 @@ class CreateReview(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class AddFavorite(APIView):
-    permission_classes = [IsAuthenticated]
+# class AddFavorite(APIView):
+#     permission_classes = [IsAuthenticated]
 
-    def post(self, request, book_id):
-        book = Book.objects.get(id=book_id)
-        favorite, created = Favorite.objects.get_or_create(user=request.user, book=book)
-        if created:
-            return Response({'detail': 'Book added to favorites'}, status=status.HTTP_201_CREATED)
-        return Response({'detail': 'Book already in favorites'}, status=status.HTTP_400_BAD_REQUEST)
+#     def post(self, request, book_id):
+#         book = Book.objects.get(id=book_id)
+#         favorite, created = Favorite.objects.get_or_create(user=request.user, book=book)
+#         if created:
+#             return Response({'detail': 'Book added to favorites'}, status=status.HTTP_201_CREATED)
+#         return Response({'detail': 'Book already in favorites'}, status=status.HTTP_400_BAD_REQUEST)
 
 class RegisterUser(APIView):
     def post(self, request):

@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth.models import User
-from .models import Book, Review, Favorite, UserProfile
+from .models import Book, Review, User
 
-@admin.register(UserProfile)
+@admin.register(User)
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = ['user', 'role']
     list_filter = ['role']
@@ -10,7 +10,7 @@ class UserProfileAdmin(admin.ModelAdmin):
 
 
 class BookAdmin(admin.ModelAdmin):
-    list_display = ['title', 'author', 'created_at']
+    list_display = ['title', 'author']
     search_fields = ['title', 'author']
 
     def get_queryset(self, request):
@@ -53,7 +53,7 @@ class FavoriteAdmin(admin.ModelAdmin):
         else:
             return queryset.none()
 
-admin.site.register(Favorite, FavoriteAdmin)
+#admin.site.register(Favorite, FavoriteAdmin)
 
 class UserAdmin(admin.ModelAdmin):
     list_display = ['username', 'email', 'is_staff', 'is_active']
