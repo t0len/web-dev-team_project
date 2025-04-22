@@ -1,0 +1,19 @@
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.book-card {
+  width: 200px;
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.book-cover {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}

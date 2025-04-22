@@ -1,0 +1,8 @@
+<div class="book-list">
+  <div *ngFor="let book of books" class="book-card">
+    <img [src]="book.cover" alt="Book cover" class="book-cover">
+    <h3>{{ book.title }}</h3>
+    <p>{{ book.author }} ({{ book.publishedYear }})</p>
+    <button mat-button (click)="viewBook(book.id)">View Details</button>
+  </div>
+</div>
