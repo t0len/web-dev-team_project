@@ -1,30 +1,35 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, tap, throwError } from 'rxjs';
 import { User } from '../types';
 
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  // isAdmin() {
-  //   throw new Error('Method not implemented.');
-  // }
   private http = inject(HttpClient);
   private router = inject(Router);
-  private baseUrl = 'http://localhost:8000/api/auth';
+  private baseUrl = 'http://localhost:8000/auth';
   
   private authStatus = new BehaviorSubject<boolean>(false);
 
   login(email: string, password: string): Observable<{ access: string; refresh: string }> {
-    return this.http.post<{ access: string; refresh: string }>(`${this.baseUrl}/login/`, { email, password }).pipe(
+    return this.http.post<{ access: string; refresh: string }>(`${this.baseUrl}/token/`, { email, password }).pipe(
       tap(response => {
         this.storeTokens(response);
         this.authStatus.next(true);
+        this.loadCurrentUser();
+      }),
+      catchError(error => {
+        this.handleError(error);
+        return throwError(() => error);
       })
     );
   }
-
+  private handleError(error: any): void {
+    console.error('Auth error:', error);
+  }
+  
   register(userData: {
     email: string;
     password: string;

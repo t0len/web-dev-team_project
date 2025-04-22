@@ -16,7 +16,8 @@ interface Book {
 @Injectable({ providedIn: 'root' })
 export class BookService {
   private http = inject(HttpClient);
-  private baseUrl = 'http://localhost:8000/api/books';
+  private baseUrl = 'http://localhost:8000/books';
+
 
   getBooks(): Observable<Book[]> {
     return this.http.get<Book[]>(this.baseUrl);
@@ -31,7 +32,7 @@ export class BookService {
   }
 
   downloadBook(id: number): Observable<Blob> {
-    return this.http.get(`${this.baseUrl}/${id}/download/`, {
+    return this.http.get(`${this.baseUrl}/${id}/book_download/`, {
       responseType: 'blob'
     });
   }
